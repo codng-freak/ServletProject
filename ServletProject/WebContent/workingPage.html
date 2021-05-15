@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/workingPageStyles.css" />
+    <title>Diet Manager</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a href="workingPage.html" class="navbar-brand"
+            ><img
+              class="d-inline-block align-text-center float-left"
+              id="logo"
+              src="images/logo.png"
+              alt="Calorimeter"
+            />
+            <p id="site">PlanIt</p></a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarButton"
+            aria-controls="navbarButton"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarButton">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a href="about.html" class="nav-link" aria-current="page"
+                  >About</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="loginPage.html" class="nav-link" aria-current="page"
+                  >Logout</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section id="menu">
+      <div class="container mt-5 col-lg-6">
+        <div class="row">
+          <h2 style="text-align: center" class="ms-4">Select one from below</h2>
+          <div class="col-lg-3"></div>
+          <div class="col-lg-9">
+            <form action="dietmenu" method="POST" id="selection">
+              <div class="form-check" id="opt1">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault1"
+                  value="create"
+                />
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Create a new diet plan
+                </label>
+              </div>
+              <div class="form-check" id="opt2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault2"
+                  value="view"
+                />
+                <label class="form-check-label" for="flexRadioDefault2">
+                  View / Update / Delete
+                </label>
+              </div>
+              <div class="confirm">
+                <button class="btn btn-sm" name="selectOption" type="submit">
+                  Confirm
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      $(document).ready(function () {
+        $("form#selection").submit(function (e) {
+          var create = $("input#flexRadioDefault1:checked").val();
+          var modify = $("input#flexRadioDefault2:checked").val();
+          if (create == null && modify == null) {
+            e.preventDefault();
+            alert("Select an option to continue");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

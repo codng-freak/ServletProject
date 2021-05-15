@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Sign Up</title>
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a href="homePage.html" class="navbar-brand"
+            ><img
+              class="d-inline-block align-text-center float-start"
+              id="logo"
+              src="images/logo.png"
+              alt="Calorimeter"
+            />
+            <p id="site">PlanIt</p></a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarButton"
+            aria-controls="navbarButton"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarButton">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a href="loginPage.html" class="nav-link" aria-current="page"
+                  >Login</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="about.html" class="nav-link" aria-current="page"
+                  >About</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section class="form mt-5 ms-5">
+      <div class="container">
+        <div class="row g-0">
+          <div class="col-lg-5 col-md-12">
+            <img
+              id="formBackground"
+              src="images/signup.jpg"
+              alt="Form Background"
+              width="100%"
+              height="100%"
+            />
+          </div>
+          <div class="col-lg-7 px-5 pt-3">
+            <img
+              src="images/logo.png"
+              alt="signupLogo"
+              id="signupLogo"
+              width="50"
+              height="50"
+            />
+            <h2 id="heading">Sign Up</h2>
+            <h3 id="success"></h3>
+            <form action="signup" method="POST" id="signUp">
+              <div class="form-row">
+                <div class="col-lg-7 my-3">
+                  <label for="firstName" class="form-label visually-hidden"
+                    >First Name</label
+                  >
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="fname"
+                    placeholder="First Name"
+                    id="firstName"
+                  />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-lg-7 my-3">
+                  <label for="lastName" class="form-label visually-hidden"
+                    >Last Name</label
+                  >
+                  <input
+                    type="text"
+                    name="lname"
+                    class="form-control"
+                    placeholder="Last Name"
+                    id="LastName"
+                  />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-lg-7 my-3">
+                  <label for="userName" class="form-label visually-hidden"
+                    >Username</label
+                  >
+                  <input
+                    type="text"
+                    name="uname"
+                    class="form-control"
+                    placeholder="Username"
+                    id="userName"
+                  />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-lg-7 my-3">
+                  <label for="passwrd" class="form-label visually-hidden"
+                    >Password</label
+                  >
+                  <input
+                    type="password"
+                    name="pwd"
+                    class="form-control"
+                    placeholder="Password"
+                    id="passwrd"
+                  />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-lg-7 my-3">
+                  <label for="city" class="form-label visually-hidden"
+                    >City</label
+                  >
+                  <input
+                    type="text"
+                    name="cty"
+                    class="form-control"
+                    placeholder="City"
+                    id="city"
+                  />
+                </div>
+              </div>
+              <div class="form-check">
+                <div class="col-lg-7">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                  <label class="form-check-label" for="flexCheckDefault">
+                    I have read and agree to the terms of PlanIt Privacy Policy
+                  </label>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-lg-7 my-3">
+                  <button class="btn" type="submit" name="signUpForm">
+                    Sign Up
+                  </button>
+                </div>
+              </div>
+              <p class="col-lg-7" style="text-align: center">
+                Already a member? <a href="loginPage.html">Login</a>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      $(document).ready(function () {
+        $("form#signUp").submit(function (e) {
+          var firstName = $("input#firstName").val();
+          var lastName = $("input#LastName").val();
+          var userName = $("input#userName").val();
+          var password = $("input#passwrd").val();
+          var city = $("input#city").val();
+          var check = $("input.form-check-input:checked");
+          if (
+            (firstName == null || firstName == "") &&
+            (lastName == null || lastName == "") &&
+            (userName == null || userName == "") &&
+            (password == null || password == "") &&
+            (city == null || city == "") &&
+            (check == null || check == "")
+          ) {
+            e.preventDefault();
+            alert("Enter your credentials");
+          } else if (firstName == null || firstName == "") {
+            e.preventDefault();
+            alert("Enter First Name");
+          } else if (lastName == null || lastName == "") {
+            e.preventDefault();
+            alert("Enter Last Name");
+          } else if (userName == null || userName == "") {
+            e.preventDefault();
+            alert("Enter User Name");
+          } else if (password == null || password == "") {
+            e.preventDefault();
+            alert("Enter Password");
+          } else if (city == null || city == "") {
+            e.preventDefault();
+            alert("Enter City");
+          } else if (!(check.length > 0)) {
+            e.preventDefault();
+            alert("Please agree to the terms and conditions of PlanIt");
+          } else {
+            $("section").fadeOut(3000);
+          }
+        });
+      });
+      $("p>a").css("font-weight", "bold");
+    </script>
+  </body>
+</html>

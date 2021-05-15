@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/newDietStyles.css" />
+    <title>Diet Manager</title>
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <style type="text/css">
+      h3 {
+        font-weight: bold;
+        font-size: 25px;
+        border: 2px solid black;
+        text-align: center;
+        background-color: black;
+        color: white;
+      }
+      form {
+        line-height: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a href="workingPage.html" class="navbar-brand"
+            ><img
+              class="d-inline-block align-text-center float-start"
+              id="logo"
+              src="images/logo.png"
+              alt="Calorimeter"
+            />
+            <p id="site">PlanIt</p></a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarButton"
+            aria-controls="navbarButton"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <section id="upFI">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-5 g-0">
+            <img
+              src="images/fruits.jpg"
+              alt="new diet"
+              width="98%"
+              height="101%"
+              id="image"
+            />
+          </div>
+          <div class="col-lg-7">
+            <form action="updateFruits" method="POST" id="new">
+              <div class="row">
+                <div class="col-md-4 ms-auto me-3">
+                  <h3>UPDATE FRUIT ITEMS</h3>
+                </div>
+                <div class="row">
+                  <div class="mb-3">
+                    <label for="itemName" class="form-label">Item Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="itemName"
+                      aria-describedby="dietNameHelp"
+                      name="iname"
+                    />
+                    <div id="dietNameHelp" class="form-text">
+                      Name of the fruit.
+                    </div>
+                    <hr />
+                    <label for="amount" class="form-label"
+                      >Amount(in grams)</label
+                    ><br />
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="amount"
+                      aria-describedby="dietNameHelp"
+                      name="amount"
+                    />
+                    <div id="dietNameHelp" class="form-text">
+                      How much you have to consume.
+                    </div>
+                    <hr />
+                    <label for="calories" class="form-label"
+                      >Calories(per 100 grams)</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="calories"
+                      aria-describedby="dietDurationHelp"
+                      name="calories"
+                    />
+                    <div id="dietDurationHelp" class="form-text">
+                      Enter calories per 100 grams
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-4">
+                    <button class="btn btn-sm" name="backward">Cancel</button>
+                  </div>
+                  <div class="col-lg-4 ms-auto">
+                    <button class="btn btn-sm" id="right" name="forward">
+                      Update
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      $(document).ready(function () {
+        $("button#right").click(function (e) {
+          var itemName = $("input#itemName").val();
+          var amount = $("input#amount").val();
+          var calories = $("input#calories").val();
+
+          if (itemName == "") {
+            e.preventDefault();
+            alert("Enter item name");
+            $("input#itemName").css("border", "2px solid red");
+            $("input#itemName").click(function () {
+              $(this).css("border", "2px solid green");
+            });
+          } else if (amount == "") {
+            e.preventDefault();
+            alert("Enter value for amount");
+            $("input#amount").css("border", "2px solid red");
+            $("input#amount").click(function () {
+              $(this).css("border", "2px solid green");
+            });
+          } else if (calories == "") {
+            e.preventDefault();
+            alert("Enter value for calories");
+            $("input#calories").css("border", "2px solid red");
+            $("input#calories").click(function () {
+              $(this).css("border", "2px solid green");
+            });
+          } else {
+            alert("Fruit Item updated successfully.");
+            $("section#upFI").fadeOut(3000);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

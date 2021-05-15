@@ -1,0 +1,45 @@
+@import "styles.css";
+
+form#new{
+	margin-top:30px;
+	font-weight: bold;
+}
+
+label.form-label{
+	padding-bottom: 2px;
+	padding-top: 10px;
+}
+
+div.form-text{
+	margin-top: 5px;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+
+div.form-check{
+	padding-bottom: 20px;
+	padding-top: 5px;
+}
+
+hr{
+	color: red;
+	border: 2px solid;
+}
+
+button.btn:hover{
+	background-color: white;
+	color: black;
+}
+
+#dietNum{
+	display: flex;
+	width: 100px;
+}
+.row{
+	padding-right: 5px;
+	padding-bottom: 5px;
+}
+
+#image{
+	margin-bottom: 1;
+}

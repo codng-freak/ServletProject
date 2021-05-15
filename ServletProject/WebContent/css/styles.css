@@ -1,0 +1,85 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-image: linear-gradient(120deg, #edc7b7, #7395ae);
+}
+#logo {
+  padding-right: 4px;
+  margin-right: 4px;
+}
+p#site {
+  margin-top: 13px;
+  float: left;
+}
+a.nav-link {
+  text-align: center;
+}
+section {
+  padding-top: 30px;
+  margin-right: 50px;
+}
+.row {
+  background: #fff;
+  border-radius: 30px;
+}
+h2#heading {
+  margin-left: 140px;
+  font-weight: bold;
+}
+img {
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+img#signupLogo {
+  margin-left: 170px;
+  margin-bottom: 10px;
+}
+.btn {
+  border: none;
+  outline: none;
+  height: 50px;
+  width: 100%;
+  background-color: black;
+  color: white;
+  border-radius: 4px;
+  font-weight: bold;
+}
+.btn:hover {
+  background-color: green;
+  border: 1px solid;
+  color: black;
+}
+#logo {
+  width: 50px;
+  height: 50px;
+}
+.me-auto {
+  align-items: center;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  img#formBackground {
+    width: 100%;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 0px;
+  }
+  section {
+    padding-bottom: 50px;
+    margin-right: 50px;
+  }
+}
+@media (max-width: 767px) {
+  img#formBackground {
+    width: 100%;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 0px;
+  }
+  section {
+    padding-bottom: 50px;
+    margin-right: 50px;
+  }
+}

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/newDietStyles.css" />
+    <title>Diet Manager</title>
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a href="workingPage.html" class="navbar-brand"
+            ><img
+              class="d-inline-block align-text-center float-start"
+              id="logo"
+              src="images/logo.png"
+              alt="Calorimeter"
+            />
+            <p id="site">PlanIt</p></a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarButton"
+            aria-controls="navbarButton"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarButton">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a href="about.html" class="nav-link" aria-current="page"
+                  >About</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link" aria-current="page">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section id="nD">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-5 g-0">
+            <img
+              src="images/newdiet.jpg"
+              alt="new diet"
+              width="100%"
+              height="101%"
+              id="image"
+            />
+          </div>
+          <div class="col-lg-7">
+            <form action="newdiet" method="POST" id="new">
+              <div class="row">
+                <div id="Dno">
+                  <input
+                    type="text"
+                    name="dno"
+                    class="form-control ms-auto"
+                    id="dietNum"
+                    placeholder="Diet No."
+                    aria-describedby="errorDietNum"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="dietName" class="form-label">Diet Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="dietName"
+                    aria-describedby="dietNameHelp"
+                    name="dname"
+                  />
+                  <div id="dietNameHelp" class="form-text">
+                    Name your diet plan.
+                  </div>
+                  <hr />
+                  <label for="dietTime" class="form-label"
+                    >Time of the diet</label
+                  ><br />
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="inlineRadioOptions"
+                      id="breakfast"
+                      value="option1"
+                    />
+                    <label class="form-check-label" for="breakfast"
+                      >Breakfast</label
+                    >
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="inlineRadioOptions"
+                      id="Lunch"
+                      value="option2"
+                    />
+                    <label class="form-check-label" for="Lunch">Lunch</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="inlineRadioOptions"
+                      id="Dinner"
+                      value="option3"
+                    />
+                    <label class="form-check-label" for="Dinner">Dinner</label>
+                  </div>
+                  <div id="errorDietTime">Choose correct diet timing.</div>
+                  <br />
+                  <hr />
+                  <label for="dietDuration" class="form-label"
+                    >Diet Duration</label
+                  >
+                  <input
+                    type="text"
+                    name="duration"
+                    class="form-control"
+                    id="dietDuration"
+                    aria-describedby="dietDurationHelp"
+                  />
+                  <div id="dietDurationHelp" class="form-text">
+                    Duration of your diet plan in days
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-2">
+                  <button class="btn btn-sm" name="backward">Back</button>
+                </div>
+                <div class="col-lg-2 ms-auto">
+                  <button class="btn btn-sm" id="right" name="forward">
+                    Next
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      $(document).ready(function () {
+        $("#errorDietTime").hide();
+        $("button#right").click(function (e) {
+          var dietNum = $("input#dietNum").val();
+          var dietName = $("input#dietName").val();
+          var breakfast = $("input#breakfast:checked").val();
+          var lunch = $("input#Lunch:checked").val();
+          var dinner = $("input#Dinner:checked").val();
+          var dietDuration = $("input#dietDuration").val();
+          if (dietNum == "") {
+            e.preventDefault();
+            alert("Enter diet number");
+            $("#errorDietTime").hide();
+            $("input#dietNum").css("border", "2px solid red");
+            $("input#dietNum").click(function () {
+              $(this).css("border", "2px solid green");
+            });
+          } else if (dietName == "") {
+            e.preventDefault();
+            alert("Enter diet name");
+            $("#errorDietTime").hide();
+            $("input#dietName").css("border", "2px solid red");
+            $("input#dietName").click(function () {
+              $(this).css("border", "2px solid green");
+            });
+          } else if (breakfast == null && lunch == null && dinner == null) {
+            e.preventDefault();
+            alert("Choose time of diet");
+            $("#errorDietTime").show().css({
+              color: "red",
+              "font-size": 13,
+              "font-style": "italic",
+            });
+          } else if (dietDuration == "") {
+            e.preventDefault();
+            alert("Enter diet duration");
+            $("#errorDietTime").hide();
+            $("input#dietDuration").css("border", "2px solid red");
+            $("input#dietDuration").click(function () {
+              $(this).css("border", "2px solid green");
+            });
+          } else {
+            $("#errorDietTime").hide();
+            $("section#nD").fadeOut(3000);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

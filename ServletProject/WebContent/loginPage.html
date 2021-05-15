@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/loginPageStyles.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <title>Login</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a href="homePage.html" class="navbar-brand"
+            ><img
+              class="d-inline-block align-text-center float-start"
+              id="logo"
+              src="images/logo.png"
+              alt="Calorimeter"
+            />
+            <p id="site">PlanIt</p></a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarButton"
+            aria-controls="navbarButton"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarButton">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a href="homePage.html" class="nav-link" aria-current="page"
+                  >Sign Up</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="about.html" class="nav-link" aria-current="page"
+                  >About</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section id="loginSection">
+      <div id="one" class="col-lg-4 container">
+        <h3 class="col-lg-7 ms-auto">Welcome</h3>
+        <form action="signup" method="POST" id="myForm">
+          <div class="form-row">
+            <div class="col-lg-7 my-3">
+              <label for="userName" class="form-label visually-hidden"
+                >Username</label
+              >
+              <input
+                class="form-control ms-auto"
+                type="text"
+                name="uname"
+                placeholder="Username"
+                id="userName"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-lg-7 my-3">
+              <label for="passwrd" class="form-label visually-hidden"
+                >Password</label
+              >
+              <input
+                class="form-control"
+                type="Password"
+                name="pwd"
+                placeholder="Password"
+                id="passwrd"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-lg-3 my-3">
+              <button
+                id="loginButton"
+                class="btn"
+                type="submit"
+                name="loginForm"
+              >
+                Login
+              </button>
+            </div>
+          </div>
+          <p class="col-lg-7" id="member">
+            Not a member ?<a href="homePage.html">Sign Up</a>
+          </p>
+        </form>
+      </div>
+    </section>
+    <script>
+      $("form#myForm").submit(function (e) {
+        var user = $("input#userName").val();
+        var password = $("input#passwrd").val();
+        if (
+          (user == null || user == "") &&
+          (password == null || password == "")
+        ) {
+          e.preventDefault();
+          alert("Enter your credentials");
+        } else if (user == null || user == "") {
+          e.preventDefault();
+          alert("Username cannot be blank");
+        } else if (password == null || password == "") {
+          e.preventDefault();
+          alert("Password cannot be blank");
+        } else {
+          $("section").fadeOut(3000);
+        }
+      });
+      $("h3").css("font-weight", "bold");
+    </script>
+  </body>
+</html>
